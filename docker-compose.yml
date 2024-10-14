@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kalorize-api
+    ports:
+      - 8080:5000
+      - 3307:3306
+    network_mode: host
+    restart: unless-stopped
+    extra_hosts: "host.docker.internal:host-gateway"
